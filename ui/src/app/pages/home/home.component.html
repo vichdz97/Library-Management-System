@@ -2,7 +2,7 @@
 
 <ng-container *ngIf="resultMessage != ''; else homeTemplate">
   <br>
-  <a class="ms-5" (click)="backHome()" [routerLink]="">&lt; Back to Home</a>
+  <a class="ms-5" (click)="backHome()" [routerLink]="[]">&lt; Back to Home</a>
   <h5 class="mx-5 mt-2">{{ resultMessage }}</h5>
 
   <ng-container *ngIf="matchingBooks != null; else noResults">
