@@ -1,0 +1,37 @@
+<h3 class="h3 text-center mt-5">Catalog Page</h3>
+<div class="container">
+    <table class="table table-bordered table-inverse text-center">
+        <tr>
+            <!-- <th class="text-start">ID</th> -->
+            <th class="text-start">Book Title</th>
+            <th>Authors</th>
+            <!-- <th>Genre</th> -->
+            <th>ISBN</th>
+            <th># of Pages</th>
+            <th>Publication Date</th>
+            <th>Publisher</th>
+            <!-- <th>Current Holds</th>
+            <th>Status</th>
+            <th>Total Books</th>
+            <th>Due Date</th>
+            <th>Days Remaining</th> -->
+        </tr>
+        <tr *ngFor="let book of books">
+            <!-- <td class="text-start">{{ book.id }}</td> -->
+            <td class="text-start">{{ book.title }}</td>
+            <td>{{ book.authors }}</td>
+            <!-- <td>{{ book.genre }}</td> -->
+            <td>{{ book.isbn }}</td>
+            <!-- <td>{{ book.numPages }}</td> -->
+            <td>{{ book.pageNumber }}</td>
+            <td>{{ book.publicationDate }}</td>
+            <td>{{ book.publisher }}</td>
+            <!-- <td>{{ book.currentHolds }}</td>
+            <td>{{ book.bookStatus }}</td>
+            <td>{{ book.totalBooks }}</td>
+            <td>{{ book.dueDate }}</td>
+            <td>{{ book.daysRemaining }}</td> -->
+            <!-- <td><button (click)="deleteBook(book.id)" type="button" class="btn btn-outline-danger">X</button></td> -->
+        </tr>
+    </table>
+</div>

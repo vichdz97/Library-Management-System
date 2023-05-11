@@ -1,0 +1,28 @@
+a {
+  display: inline;
+}
+
+form {
+  padding: 15px;
+  margin-left: 50%;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+
+form .form-floating:focus-within {
+  z-index: 2;
+}
+
+form input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+form input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

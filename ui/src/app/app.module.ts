@@ -1,0 +1,43 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+import { BookService } from './services/book.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BookformComponent } from './pages/bookform/bookform.component';
+import { CatalogComponent } from './pages/catalog/catalog.component';
+import { HomeComponent } from './pages/home/home.component';
+import { RecoverComponent } from './pages/recover/recover.component';
+import { LoginService } from './services/login.service';
+import { LoginComponent } from './pages/login/login.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    BookformComponent,
+    CatalogComponent,
+    HomeComponent,
+    LoginComponent,
+    RecoverComponent,
+    ErrorComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule,
+    SharedModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    IvyCarouselModule
+  ],
+  providers: [BookService, LoginService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

@@ -1,0 +1,8 @@
+<div class="input-group rounded float-end w-25 mt-2 me-2">
+    <input type="text" class="form-control rounded" placeholder="Search" [(ngModel)]="item" />
+    <div class="input-group-append">
+        <button (click)="searchFor(item)" class="btn btn-outline-secondary">
+            <i class="bi bi-search"></i>
+        </button>
+    </div>
+</div>

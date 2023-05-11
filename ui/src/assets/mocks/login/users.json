@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "name": "Mandy",
+      "email": "mandy@capgemini.com",
+      "userType": "admin",
+      "id": 1
+    },
+    {
+      "name": "Danny",
+      "email": "danny@capgemini.com",
+      "userType": "user",
+      "id": 2
+    },
+    {
+      "name": "Carol",
+      "email": "carol@capgemini.com",
+      "userType": "user",
+      "id": 3
+    },
+    {
+      "email": "victor.hernandez@capgemini.com",
+      "password": "aaa",
+      "id": 4
+    }
+  ]
+}

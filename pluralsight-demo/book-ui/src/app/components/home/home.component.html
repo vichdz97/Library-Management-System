@@ -1,0 +1,35 @@
+<div class="container">
+    <form [formGroup]="bookForm" (ngSubmit)="submitForm()" novalidate>
+      <div *ngIf="validMessage != ''">
+        <h3 class="has-info">{{ validMessage }}</h3>
+      </div>
+
+      <div class="form-group">
+        <label>Book Title</label>
+        <input type="text" class="form-control" formControlName="title" required autofocus/>
+      </div>
+      <div class="form-group">
+        <label>Book Author</label>
+        <input type="text" class="form-control" formControlName="author" required/>
+      </div>
+      <div class="form-group">
+        <label>Book Genre</label>
+        <select class="form-control" formControlName="genre" required>
+          <option value="">Select a genre</option>
+          <option *ngFor="let g of genres" [value]="g">
+                  {{ g }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Book ISBN</label>
+        <input type="text" class="form-control" formControlName="isbn" required/>
+      </div>
+      <div class="form-group">
+        <label>Due Date</label>
+        <input type="text" class="form-control" formControlName="dueDate" required/>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,15 @@
+<form [formGroup]="recoverForm" (ngSubmit)="onSubmit()" class="text-center">
+    <h4>Library Management System</h4>
+    <p>Enter your recovery email</p>
+
+    <div class="form-floating">
+        <input id="email" type="email" formControlName="email" class="form-control" placeholder="name@example.com">
+        <label for="email" class="form-label">Username</label>
+        <app-inline-error [control]="emailControl"></app-inline-error>
+    </div>
+
+    <button type="submit" class="w-100 mt-2 btn btn-primary">Next</button>
+    <p class="mt-3 mb-3 text-muted">
+        <small>&copy; Team Bee 2021</small>
+    </p>
+</form>
