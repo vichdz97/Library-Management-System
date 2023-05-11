@@ -15,7 +15,6 @@ import { RecoverComponent } from './pages/recover/recover.component';
 import { LoginService } from './services/login.service';
 import { LoginComponent } from './pages/login/login.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -34,8 +33,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     SharedModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule,
-    IvyCarouselModule
+    FormsModule
   ],
   providers: [BookService, LoginService],
   bootstrap: [AppComponent]
