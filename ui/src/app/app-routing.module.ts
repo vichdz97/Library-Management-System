@@ -5,11 +5,13 @@ import { CatalogComponent } from './pages/catalog/catalog.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
 import { RecoverComponent } from './pages/recover/recover.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'recover', component: RecoverComponent },
   { path: 'home', component: HomeComponent },
   { path: 'catalog', component: CatalogComponent },
