@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { LoginResponseData } from 'src/app/pages/login/login';
-import { LoginService } from 'src/app/services/login.service';
+import { User } from 'src/app/interfaces/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,30 +10,21 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class NavbarComponent implements OnInit {
 
-  private subscription$: Subscription = new Subscription();
-  loginStatus: LoginResponseData = {};
+  @Input() user?: User;
 
   constructor(
-    private loginService: LoginService,
     private router: Router,
-    ) { }
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
-    // this.getLoginData();
-  }
 
-  private getLoginData() {
-    this.subscription$.add(
-      this.loginService.loginData.subscribe(response => {
-        this.loginStatus = response;
-      })
-    );
   }
 
   logout() {
-    // this.loginService.loginData.next({});
+    this.user = undefined;
+    this.userService.currentUser = undefined;
     this.router.navigateByUrl('/login');
-    console.warn('Successfully logged out!');
   }
 
 }
