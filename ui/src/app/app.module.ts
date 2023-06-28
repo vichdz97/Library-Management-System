@@ -16,6 +16,7 @@ import { LoginService } from './services/login.service';
 import { LoginComponent } from './pages/login/login.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { UserService } from './services/user.service';
+import { SignupComponent } from './pages/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { UserService } from './services/user.service';
     LoginComponent,
     RecoverComponent,
     ErrorComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
