@@ -15,6 +15,7 @@ import { RecoverComponent } from './pages/recover/recover.component';
 import { LoginService } from './services/login.service';
 import { LoginComponent } from './pages/login/login.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { ErrorComponent } from './pages/error/error.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [BookService, LoginService],
+  providers: [BookService, LoginService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
