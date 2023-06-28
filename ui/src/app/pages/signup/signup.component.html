@@ -1,1 +1,17 @@
-<p>signup works!</p>
+<app-navbar></app-navbar>
+
+<div class="d-flex flex-column justify-content-center align-items-center h-100">
+    <h4>Sign Up</h4>
+    <form class="w-25">
+        <div class="form-floating my-3">
+            <input type="text" id="email" class="form-control" placeholder="Email">
+            <label for="email">Email</label>
+        </div>
+        <div class="form-floating">
+            <input type="text" id="pwd" class="form-control" placeholder="Password">
+            <label for="pwd">Password</label>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 my-3">Sign Up</button>
+    </form>
+    <a class="nav-link" routerLink="/login">Already have an account? Log In!</a>
+</div>
