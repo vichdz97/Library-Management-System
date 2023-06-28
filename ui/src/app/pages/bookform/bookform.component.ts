@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/interfaces/user';
 import { BookService } from 'src/app/services/book.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-bookform',
@@ -9,6 +11,8 @@ import { BookService } from 'src/app/services/book.service';
   styleUrls: ['./bookform.component.css']
 })
 export class BookformComponent implements OnInit {
+
+  currentUser?: User;
 
   genres: string[] = ['Action and Adventure', 'Drama', 'Fantasy Fiction', 
                       'Graphic Novel', 'Historical Fiction', 'Horror', 
@@ -19,7 +23,8 @@ export class BookformComponent implements OnInit {
 
   constructor(
     private bookService: BookService,
-    private router: Router
+    private router: Router,
+    private userService: UserService
     ) { }
 
   ngOnInit(): void {
@@ -35,6 +40,8 @@ export class BookformComponent implements OnInit {
       dueDate: new FormControl('', [Validators.required]),
       daysRemaining: new FormControl('', [Validators.required]),
     });
+
+    this.currentUser = this.userService.currentUser;
   }
 
   submitForm() {

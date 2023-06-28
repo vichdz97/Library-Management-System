@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/interfaces/user';
 import { BookService } from 'src/app/services/book.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-catalog',
@@ -8,14 +10,21 @@ import { BookService } from 'src/app/services/book.service';
 })
 export class CatalogComponent implements OnInit {
 
+  currentUser?: User;
+
   public books: any;
   public book: any;
 
-  constructor(private bookService: BookService) { }
+  constructor(
+    private bookService: BookService,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
     this.getBooks();
     // this.getOneBook(1);
+
+    this.currentUser = this.userService.currentUser;
   }
 
   getBooks() {

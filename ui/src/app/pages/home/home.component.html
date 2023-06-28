@@ -1,3 +1,5 @@
+<app-navbar [user]="currentUser"></app-navbar>
+
 <app-search (newItemEvent)="showItem($event)"></app-search>
 
 <ng-container *ngIf="resultMessage != ''; else homeTemplate">

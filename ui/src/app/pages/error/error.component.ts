@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/interfaces/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-error',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-  constructor() { }
+  currentUser?: User;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.currentUser = this.userService.currentUser;
   }
 
 }

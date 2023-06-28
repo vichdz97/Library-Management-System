@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/services/login.service';
-import { LoginResponseData } from './login';
+import { User } from 'src/app/interfaces/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -11,24 +11,26 @@ import { LoginResponseData } from './login';
 })
 export class LoginComponent implements OnInit {
 
+  allUsers!: User[];
+  currentUser?: User;
+
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]]
   });
 
-  visual: LoginResponseData = {};
-
   constructor(
     private fb: FormBuilder,
-    private loginService: LoginService,
+    private userService: UserService,
     private router: Router,
     ) { }
 
     ngOnInit(): void {
-      // this.loginService.getJSON().subscribe();
-      // this.loginService.loginData.subscribe(users => {
-      //   this.visual = users;
-      // });
+      this.userService.getAllUsers().subscribe({
+        next: data => this.allUsers = data,
+        error: err => console.log(err),
+        complete: () => console.log("SUCCESS - All users loaded")
+      });
     }
 
   get emailControl(): FormControl {
@@ -39,24 +41,23 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password') as FormControl;
   }
 
-  forgot() {
-    this.router.navigateByUrl('/recover');
-  }
-
   onSubmit() {
     if (this.loginForm.valid) {
-      // this.loginService.addLogin(this.loginForm.value).subscribe(login => {
-      //   console.log(login);
-      //   this.loginForm.reset();
-      //   this.router.navigateByUrl('/home');
-      // });
+      this.allUsers.forEach(user => {
+        if (user.email === this.emailControl.value) {
+          this.currentUser = user;
+        }
+      });
 
-      console.log(this.loginForm.value);
-      this.loginForm.reset();
-      this.router.navigateByUrl('/home');
-
-
-    } else {
+      this.userService.getUser(this.currentUser!.id).subscribe({
+        next: res => {
+          this.loginForm.reset();
+        },
+        error: err => console.error(err),
+        complete: () => console.log("SUCCESS - User logged in")
+      });
+    } 
+    else {
       this.loginForm.markAllAsTouched();
     }
   }

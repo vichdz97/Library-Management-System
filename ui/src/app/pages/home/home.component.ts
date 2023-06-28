@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/interfaces/user';
 import { BookService } from 'src/app/services/book.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,8 @@ import { BookService } from 'src/app/services/book.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  currentUser?: User;
   
   searchItem = '';
   resultMessage = '';
@@ -31,9 +35,13 @@ export class HomeComponent implements OnInit {
     { path: '/assets/nature10.jpg' },
   ];
 
-  constructor(private bookService: BookService) { }
+  constructor(
+    private bookService: BookService,
+    private userService: UserService
+  ) { }
   
   ngOnInit(): void {
+    this.currentUser = this.userService.currentUser;
   }
   
   showItem(item: string) {

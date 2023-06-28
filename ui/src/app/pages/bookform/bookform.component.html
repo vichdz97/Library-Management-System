@@ -1,3 +1,5 @@
+<app-navbar [user]="currentUser"></app-navbar>
+
 <form [formGroup]="bookForm" (ngSubmit)="submitForm()" class="container mt-3 mx-5" novalidate>
   <div *ngIf="validMessage != ''">
     <h3 class="has-info">{{ validMessage }}</h3>
